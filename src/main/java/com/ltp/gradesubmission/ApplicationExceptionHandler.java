@@ -1,10 +1,8 @@
 package com.ltp.gradesubmission;
 
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -22,30 +20,32 @@ import com.ltp.gradesubmission.exception.ErrorResponse;
 import com.ltp.gradesubmission.exception.GradeNotFoundException;
 import com.ltp.gradesubmission.exception.StudentNotEnrolledException;
 
-
 @ControllerAdvice
 public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler({EntityNotFoundException.class, GradeNotFoundException.class, StudentNotEnrolledException.class})
+    @ExceptionHandler({ EntityNotFoundException.class, GradeNotFoundException.class,
+            StudentNotEnrolledException.class })
     public ResponseEntity<Object> handleResourceNotFoundException(RuntimeException ex) {
-        ErrorResponse error = new ErrorResponse(Arrays.asList(ex.getMessage()));  
+        ErrorResponse error = new ErrorResponse(Arrays.asList(ex.getMessage()));
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(EmptyResultDataAccessException.class)
     public ResponseEntity<Object> handleDataAccessException(EmptyResultDataAccessException ex) {
-        ErrorResponse error = new ErrorResponse(Arrays.asList("Cannot delete non-existing resource"));  
+        ErrorResponse error = new ErrorResponse(Arrays.asList("Cannot delete non-existing resource"));
         return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Object> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
-        ErrorResponse error = new ErrorResponse(Arrays.asList("Data Integrity Violation: we cannot process your request."));  
+        ErrorResponse error = new ErrorResponse(
+                Arrays.asList("Data Integrity Violation: we cannot process your request."));
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
     @Override
-    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+    protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
+            HttpHeaders headers, HttpStatus status, WebRequest request) {
         List<String> errors = new ArrayList<>();
         ex.getBindingResult().getAllErrors().forEach((error) -> errors.add(error.getDefaultMessage()));
         return new ResponseEntity<>(new ErrorResponse(errors), HttpStatus.BAD_REQUEST);

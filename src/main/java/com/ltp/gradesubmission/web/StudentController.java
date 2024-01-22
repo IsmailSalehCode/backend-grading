@@ -29,7 +29,7 @@ public class StudentController {
 
     @Autowired
     StudentService studentService;
-    
+
     @GetMapping("/{id}")
     public ResponseEntity<Student> getStudent(@PathVariable Long id) {
         return new ResponseEntity<>(studentService.getStudent(id), HttpStatus.OK);
