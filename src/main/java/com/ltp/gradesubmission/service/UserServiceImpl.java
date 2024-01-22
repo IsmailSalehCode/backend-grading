@@ -16,7 +16,7 @@ import lombok.AllArgsConstructor;
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
-	private BCryptPasswordEncoder bCryptPasswordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public User getUser(Long id) {
@@ -37,10 +37,10 @@ public class UserServiceImpl implements UserService {
     }
 
     static User unwrapUser(Optional<User> entity, Long id) {
-        if (entity.isPresent()) return entity.get();
-        else throw new EntityNotFoundException(id, User.class);
+        if (entity.isPresent())
+            return entity.get();
+        else
+            throw new EntityNotFoundException(id, User.class);
     }
 
-
-    
 }

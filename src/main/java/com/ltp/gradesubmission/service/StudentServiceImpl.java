@@ -17,7 +17,6 @@ import lombok.AllArgsConstructor;
 @Service
 public class StudentServiceImpl implements StudentService {
 
-
     private StudentRepository studentRepository;
 
     @Override
@@ -32,13 +31,13 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public void deleteStudent(Long id) {      
-        studentRepository.deleteById(id);  
+    public void deleteStudent(Long id) {
+        studentRepository.deleteById(id);
     }
 
     @Override
     public List<Student> getStudents() {
-        return (List<Student>)studentRepository.findAll();
+        return (List<Student>) studentRepository.findAll();
     }
 
     @Override
@@ -48,8 +47,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     static Student unwrapStudent(Optional<Student> entity, Long id) {
-        if (entity.isPresent()) return entity.get();
-        else throw new EntityNotFoundException(id, Student.class);
+        if (entity.isPresent())
+            return entity.get();
+        else
+            throw new EntityNotFoundException(id, Student.class);
     }
 
 }
