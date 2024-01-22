@@ -8,11 +8,11 @@
 		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ltp</groupId>
-	<artifactId>grade-submission</artifactId>
+	<groupId>com.ismail</groupId>
+	<artifactId>backend-grading</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>grade-submission</name>
-	<description>Demo project for Spring Boot</description>
+	<name>backend-grading</name>
+	<description>Back end for a university project. Instructor: Yavor Tomov.</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
