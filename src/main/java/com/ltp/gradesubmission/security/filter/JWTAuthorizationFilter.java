@@ -20,7 +20,8 @@ import com.ltp.gradesubmission.security.SecurityConstants;
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+            throws ServletException, IOException {
         String header = request.getHeader("Authorization");
 
         if (header == null || !header.startsWith(SecurityConstants.BEARER)) {
@@ -30,9 +31,9 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
         String token = header.replace(SecurityConstants.BEARER, "");
         String user = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET_KEY))
-            .build()
-            .verify(token)
-            .getSubject();
+                .build()
+                .verify(token)
+                .getSubject();
 
         Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, Arrays.asList());
         SecurityContextHolder.getContext().setAuthentication(authentication);

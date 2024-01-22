@@ -15,9 +15,8 @@ import lombok.AllArgsConstructor;
 
 @Component
 @AllArgsConstructor
-public class CustomAuthenticationManager implements AuthenticationManager {    
+public class CustomAuthenticationManager implements AuthenticationManager {
 
-    
     private UserService userServiceImpl;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
