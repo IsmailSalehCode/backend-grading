@@ -15,8 +15,9 @@ import javax.validation.Payload;
 public @interface Score {
 
     String message() default "The score is not valid";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 
 }
-    
