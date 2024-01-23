@@ -30,12 +30,12 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotBlank(message = "username cannot be blank")
+	@NotBlank(message = "Username cannot be blank!")
 	@NonNull
 	@Column(nullable = false, unique = true)
 	private String username;
 
-	@NotBlank(message = "password cannot be blank")
+	@NotBlank(message = "Password cannot be blank!")
 	@NonNull
 	@Column(nullable = false)
 	private String password;
