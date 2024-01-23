@@ -17,13 +17,13 @@ import lombok.AllArgsConstructor;
 
 @SpringBootApplication
 @AllArgsConstructor
-public class GradeSubmissionApplication implements CommandLineRunner {
+public class GradingApplication implements CommandLineRunner {
 
 	StudentRepository studentRepository;
 	CourseRepository courseRepository;
 
 	public static void main(String[] args) {
-		SpringApplication.run(GradeSubmissionApplication.class, args);
+		SpringApplication.run(GradingApplication.class, args);
 	}
 
 	@Override
