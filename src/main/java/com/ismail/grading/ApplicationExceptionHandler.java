@@ -38,9 +38,13 @@ public class ApplicationExceptionHandler extends ResponseEntityExceptionHandler 
 
     @ExceptionHandler(DataIntegrityViolationException.class)
     public ResponseEntity<Object> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
-        ErrorResponse error = new ErrorResponse(
-                Arrays.asList("Data Integrity Violation: we cannot process your request."));
-        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+        String msgError;
+        if (ex.getMessage().contains("PUBLIC.UK_R43AF9AP4EDM43MMTQ01ODDJ6_INDEX_4")) {
+            msgError = "User with provided username already exists!";
+        } else {
+            msgError = "Data Integrity Violation: we cannot process your request.";
+        }
+        return new ResponseEntity<>(msgError, HttpStatus.BAD_REQUEST);
     }
 
     @Override
