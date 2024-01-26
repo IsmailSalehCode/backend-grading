@@ -41,6 +41,11 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
          * SecurityContextHolder is where Spring Security stores the details of who is
          * authenticated.
          */
+        /*
+         * Въпреки че нямам роли, трябва да използвам този конструктор.
+         * Иначе бъг. Не мога просто да направя това:
+         * authenticate.setAuthenticated(true), защото -> IllegalArgumentException
+         */
         Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, Arrays.asList());
         // 2nd param: credentials. Here is most often the password. Our JWT won't
         // contain any
