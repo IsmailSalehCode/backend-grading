@@ -35,8 +35,20 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
                 .verify(token)
                 .getSubject();
 
+        /*
+         * Setting the auth object on the SecurityContextHolder. The
+         * SecurityContextHolder is where Spring Security stores the details of who is
+         * authenticated.
+         */
         Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, Arrays.asList());
+        // 1st param: principal = user
+        // 2nd param: credentials. Here is most often the password. Our JWT won't
+        // contain any
+        // sensitive info about the client. The user itself is going to be identified by
+        // the username (getSubject();)
         SecurityContextHolder.getContext().setAuthentication(authentication);
         filterChain.doFilter(request, response);
+        // because this is the last filter in our filter chain, execution is going to
+        // move on to the controllers (if everything is ok here).
     }
 }
