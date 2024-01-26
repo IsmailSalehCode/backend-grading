@@ -24,6 +24,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         String header = request.getHeader("Authorization");
 
+        // If user is just signing up, they do not need to pass in an auth header.
         if (header == null || !header.startsWith(SecurityConstants.BEARER)) {
             filterChain.doFilter(request, response);
             return;
@@ -41,7 +42,6 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
          * authenticated.
          */
         Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, Arrays.asList());
-        // 1st param: principal = user
         // 2nd param: credentials. Here is most often the password. Our JWT won't
         // contain any
         // sensitive info about the client. The user itself is going to be identified by
