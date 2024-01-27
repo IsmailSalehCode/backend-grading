@@ -1,3 +1,10 @@
+/**
+ * The Score annotation is intended to be applied to fields in
+ * Java classes. When applied, it signals to the validation framework that the
+ * annotated field should be validated using the logic defined in the
+ * ScoreValidator class.
+ */
+
 package com.ismail.grading.validation;
 
 import java.lang.annotation.ElementType;
