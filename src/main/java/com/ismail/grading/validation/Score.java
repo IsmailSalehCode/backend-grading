@@ -13,6 +13,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import javax.validation.Constraint;
+import javax.validation.Payload;
 
 // can only be applied to fields
 @Target(ElementType.FIELD)
@@ -26,4 +27,9 @@ import javax.validation.Constraint;
 public @interface Score {
     // default error message
     String message() default "The score is not valid";
+
+    // I need the following two method declarations. Otherwise bad app behavior.
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
 }
