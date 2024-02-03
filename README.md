@@ -2,7 +2,7 @@
 
 **PostMan collection ready for import**: https://drive.google.com/file/d/1dyDmaNWEgmzerXXbJPDG9JypXP6XkBe9/view?usp=sharing
 
-**Final grade**: *Отличен 6*
+**Final grade**: *Отличен (6)*
 
 # Presentation notes
 
