@@ -2,7 +2,7 @@
 
 **PostMan collection** ready for import: https://drive.google.com/file/d/1dyDmaNWEgmzerXXbJPDG9JypXP6XkBe9/view?usp=sharing
 
----
+Points (grade): 50/50
 
 # Presentation notes
 
