@@ -1,4 +1,4 @@
-**Features**: User Management (Registration, Authentication), Authorization & CRUD.
+**Features**: User Management (Registration, Authentication), Authorization & CRUD operations.
 
 **PostMan collection ready for import**: https://drive.google.com/file/d/1dyDmaNWEgmzerXXbJPDG9JypXP6XkBe9/view?usp=sharing
 
