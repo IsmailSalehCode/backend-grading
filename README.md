@@ -69,7 +69,7 @@ http
     .antMatchers("/h2/**").permitAll()
 ```
 
-The above are not spring security configurations we would want to use in production. These are only so that we can enable the H2 console.
+The above are not spring security configurations we would want to use in production. These are only so that we can enable the H2 console and have convenient access to it.
 In production we would never use H2. We'd rather use a DBMS so that data gets saved to disk. For dev H2 is alright cuz its a lightweight in-memory DB.
 http://localhost:8080/h2
 
