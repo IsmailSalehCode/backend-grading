@@ -2,6 +2,8 @@
 
 **PostMan collection ready for import**: https://drive.google.com/file/d/1dyDmaNWEgmzerXXbJPDG9JypXP6XkBe9/view?usp=sharing
 
+![backend-grading postman preview](https://github.com/IsmailSalehCode/backend-grading/assets/55927975/21f3130e-f810-4374-9168-0d85fcedd64f)
+
 **Final grade**: Excellent (6)
 
 # Presentation notes
